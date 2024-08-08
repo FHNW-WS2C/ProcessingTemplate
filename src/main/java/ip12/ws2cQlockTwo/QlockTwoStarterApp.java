@@ -8,14 +8,7 @@ import processing.data.IntList;
  * QLOCKTWO in Processing
  * Credits for original design and all rights belong to: https://qlocktwo.com
  * This Processing Sketch Author: Michael Job
- * Version: 1.0
- * showCase Demomode with "s"
- * TODO 1: show black background with key "b"
- * TODO 2: show dots for minutes
- * TODO 3: vary background colors randomly with key "c"
- * TODO 4: junior: change language (by replaceing german)
- *         senior: add another language (language is swappable)
- *
+ * Version: 0.1 - Startercode for ws2C
  * Wordlist de:
  *  ES K IST A FÜNF
  *  ZEHN BYG VOR G
@@ -35,9 +28,6 @@ public class QlockTwoStarterApp extends PApplet {
     int white = color(255, 255, 255);
     int random = color(123, 34, 77);  //bordeux/violett
     PFont dinFont;
-    int autoMin = 42;
-    int autoHour = 10;
-    boolean showCase = false;
     int margin = 30;
 
     char[] de = {
@@ -75,16 +65,9 @@ public class QlockTwoStarterApp extends PApplet {
         //get time
         int m = minute();  // Values from 0 - 59
         int h = hour() % 12;    // Values from 0-11
-        if (showCase) {
-            frameRate(3);
-            autoMin += 1;
-            m = autoMin % 60;
-            if (m == 0) autoHour += 1;
-            h = autoHour % 12;
-            println(h + ":" + m);
-        } else {
-            frameRate(60);
-        }
+
+        //TODO showCase Demomode
+
         IntList onIndicies = getOnIndicies(h, m);
         //draw Letters
         int y = (int) (4.5 * margin);
@@ -99,7 +82,8 @@ public class QlockTwoStarterApp extends PApplet {
             }
             text(de[i], 5 * margin + 50 * (i % 11), y);
         }
-        //TODO 2: draw dots for minutes 1,2,3,4,-,6,7,8,9
+
+        //TODO: draw dots for minutes 1,2,3,4,-,6,7,8,9
 
     }
 
@@ -322,19 +306,14 @@ public class QlockTwoStarterApp extends PApplet {
         onIdx.append(32);
     }
 
-    //key controls
-    @Override
-    public void keyReleased() {
-        switch (key) {
-            case 's':
-                showCase = !showCase;
-                break;
+    //TODO: key controls
 
-            //TODO 1: set black backgroundcolor if key "b" is pressed
+            //TODO: set demo show mode if "s" is pressed
 
+            //TODO: set black backgroundcolor if key "b" is pressed
 
-            //TODO 3: set random backgroundcolor if key "c" is pressed
+            //TODO: set random backgroundcolor if key "c" is pressed
 
-        }
-    }
+            //TODO: language settings
+
 }
